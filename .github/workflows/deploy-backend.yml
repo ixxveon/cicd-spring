@@ -36,6 +36,7 @@ jobs:
         run: |
           aws ssm send-command \
             --instance-ids ${{ secrets.EC2_INSTANCE_ID }} \
+            --detailas \
             --document-name "AWS-RunShellScript" \
             --parameters commands="[
               \"aws s3 cp s3://${{ secrets.BACKEND_BUCKET }}/app.jar /home/ec2-user/app/app.jar\",
